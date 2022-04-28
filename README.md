@@ -1,11 +1,10 @@
-# Calculator-Engine
+# Calculator Engine
 Calculator made with Java
 
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
-* [Fonts](#fonts)
 * [Status](#status)
 * [Final Considerations](#final-considerations)
 
