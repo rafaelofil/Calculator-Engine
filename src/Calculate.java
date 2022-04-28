@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Calculate {
@@ -75,11 +76,23 @@ public class Calculate {
 
   private static void performOperation(String[] parts) {
     char opCode = opCodeFromString(parts[0]);
-    double leftValue = valueFromWord(parts[1]);
-    double rightValue = valueFromWord(parts[2]);
-    double result = execute(opCode, leftValue, rightValue);
+    if(opCode == 'w') 
+      handleWhen(parts);
+    else {
+      double leftValue = valueFromWord(parts[1]);
+      double rightValue = valueFromWord(parts[2]);
+      double result = execute(opCode, leftValue, rightValue);
+      displayResult(opCode, leftValue, rightValue, result);
+    }
+  }
 
-    displayResult(opCode, leftValue, rightValue, result);
+  private static void handleWhen(String[] parts) {
+    LocalDate startDate = LocalDate.parse(parts[1]);
+    long daysToAdd = (long) valueFromWord(parts[2]);
+    LocalDate newDate = startDate.plusDays(daysToAdd);
+
+    String output = String.format("%S plus %d is %s", startDate, daysToAdd, newDate);
+    System.out.println(output);
   }
 
   private static void displayResult(char opCode, double leftValue, double rightValue, double result) {
