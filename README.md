@@ -24,8 +24,9 @@ To run the calculations is necessary to have java jdk install in folder location
 
 ```
 $ git clone https://github.com/rafaelofil/Calculator-Engine.git
-$ javac src/Calculate.main
-$ java src/Calculate.main
+$ cd Calculator/src
+$ javac Calculate.main 
+$ java Calculate.main
 ```
 
 With interactive mode in commandline:
