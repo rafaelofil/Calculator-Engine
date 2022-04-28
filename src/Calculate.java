@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Calculate {
-  static char operationCodes[] = {'a', 's', 'm', 'd'};
+  static char[] operationCodes = {'a', 's', 'm', 'd'};
 
   public static void main(String[] args) {
     double[] leftValues = {100.0d, 25.0d, 225.0d, 11.0d};
@@ -27,38 +27,26 @@ public class Calculate {
     Scanner scanner = new Scanner(System.in);
     String userInput = scanner.nextLine();
     String[] parts = userInput.split(" ");
-//    performOperation(parts);
+    performOperation(parts);
   }
 
   static double execute(char operationCode, double leftValue, double rightValue) {
-    double result;
-    switch (operationCode) {
-      case 'a':
-        result = leftValue + rightValue;
-        break;
-      case 's':
-        result = leftValue - rightValue;
-        break;
-      case 'm':
-        result = leftValue * rightValue;
-        break;
-      case 'd':
-        result = rightValue != 0 ? leftValue / rightValue : 0.0d;
-        break;
-      default:
-        result = 0.0d;
-        break;
-    }
+    double result = switch (operationCode) {
+      case 'a' -> leftValue + rightValue;
+      case 's' -> leftValue - rightValue;
+      case 'm' -> leftValue * rightValue;
+      case 'd' -> rightValue != 0 ? leftValue / rightValue : 0.0d;
+      default -> 0.0d;
+    };
 
     return result;
   }
 
   static char opCodeFromString(String operationName) {
-    char opCode = operationName.charAt(0);
-    return opCode;
+    return operationName.charAt(0);
   }
 
-  double valueFromWord(String word) {
+  static double valueFromWord(String word) {
     String[] numberWords = {
             "zero", "one", "two", "three", "four",
             "five", "six", "seven", "eight", "nine"
@@ -67,9 +55,10 @@ public class Calculate {
     double value = 0d;
 
     for(int i = 0; i < numberWords.length; i++) {
-      if(word.equals(numberWords[i]))
+      if(word.equals(numberWords[i])) {
         value = i;
         break;
+      }
     }
 
     return value;
@@ -90,7 +79,14 @@ public class Calculate {
     double rightValue = valueFromWord(parts[2]);
     double result = execute(opCode, leftValue, rightValue);
 
-    System.out.println(result);
+    displayResult(opCode, leftValue, rightValue, result);
+  }
+
+  private static void displayResult(char opCode, double leftValue, double rightValue, double result) {
+    char symbol = symbolFromOpCode(opCode);
+
+    String output = String.format("%.2f %c %.2f = %.2f", leftValue, symbol, rightValue, result);
+    System.out.println(output);
   }
 
   private static char symbolFromOpCode(char opCode) {
