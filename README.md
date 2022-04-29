@@ -56,7 +56,7 @@ Project is: finished, but if I have any inspiration I will add.
 
 ## Final considerations
 
-This reposotory was made with intuito to study java syntax.
+This repository was made with intention to study java syntax.
 
 Made by <b>Rafael Filho</b>
 
