@@ -37,13 +37,26 @@ $ cd src
 $ java Calculate.main interactive
 ```
 
+When enter interactive mode the follow message appear "Enter operation an operation and two numbers:", can type five operation:
+* Add
+* Subtraction
+* Multiply
+* Division
+* When
+
+<strong>when</strong> operation is used to plus days in determine date | format year-month-day | E.g: "when 2021-05-21 five"
+
+The numbers can be write in full or simple way as 7.
+
+<strong>Add five 8.6</strong>
+
 ## Status
 
 Project is: finished, but if I have any inspiration I will add. 
 
 ## Final considerations
 
-Any feedback is welcome.
+This reposotory was made with intuito to study java syntax.
 
 Made by <b>Rafael Filho</b>
 
