@@ -53,7 +53,7 @@ public class Calculate {
             "five", "six", "seven", "eight", "nine"
     };
 
-    double value = 0d;
+    double value = -1d;
 
     for(int i = 0; i < numberWords.length; i++) {
       if(word.equals(numberWords[i])) {
@@ -61,6 +61,8 @@ public class Calculate {
         break;
       }
     }
+    if(value == -1d)
+      value = Double.parseDouble(word);
 
     return value;
   }
