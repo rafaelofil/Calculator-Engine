@@ -48,7 +48,7 @@ When enter interactive mode the follow message appear "Enter operation an operat
 
 The numbers can be write in full or simple way as 7.
 
-<strong>Add five 8.6</strong>
+E.g: <strong>add five 8.6</strong>
 
 ## Status
 
